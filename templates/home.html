@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Loan Status Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+        <label for="gender">Gender:</label>
+      <select name="gender" id="gender">
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select><br>
+
+        <label for="maritalStatus">Marital Status</label>
+      <select name="maritalStatus" id="maritalStatus">
+        <option value="1">Married</option>
+        <option value="0">Not Married</option>
+      </select><br>
+
+         <label for="dependents">No of dependents</label>
+      <select name="dependents" id="dependents">
+        <option value="0">0</option>
+        <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="5">3+</option>
+      </select><br>
+
+
+        <label for="education">Education</label>
+      <select name="education" id="education">
+        <option value="1">Graduate</option>
+        <option value="0">Not Graduate</option>
+      </select><br>
+
+         <label for="self_employed">Self Employed</label>
+      <select name="self_employed" id="self_employed">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select><br>
+
+        <input type="text" name="experience" placeholder="Income" required="required" /><br>
+        <input type="text" name="test_score" placeholder="CoApplicant Income" required="required" /><br>
+      <input type="text" name="loanAmount" placeholder="Loan Amount" required="required" /><br>
+      <input type="text" name="loanAmountTerm" placeholder="Loan Amount Term" required="required" /><br>
+        <input type="text" name="CreditHistory" placeholder="Credit History" required="required" /><br>
+
+        <label for="propertyArea">Property Area</label>
+      <select name="propertyArea" id="propertyArea">
+        <option value="3">Urban</option>
+        <option value="2">Semiurban</option>
+          <option value="1">Rural</option>
+      </select><br>
+
+       
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_text}}
+
+</body>
+</html>
