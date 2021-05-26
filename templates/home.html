@@ -53,11 +53,11 @@
         <option value="0">No</option>
       </select><br>
 
-        <input type="text" name="experience" placeholder="Income" required="required" /><br>
-        <input type="text" name="test_score" placeholder="CoApplicant Income" required="required" /><br>
-      <input type="text" name="loanAmount" placeholder="Loan Amount" required="required" /><br>
-      <input type="text" name="loanAmountTerm" placeholder="Loan Amount Term" required="required" /><br>
-        <input type="text" name="CreditHistory" placeholder="Credit History" required="required" /><br>
+        <input type="text" pattern="[0-9]+" name="income" placeholder="Income" required="required" /><br>
+        <input type="text" pattern="[0-9]+" name="coIncome" placeholder="CoApplicant Income" required="required" /><br>
+      <input type="text" pattern="[0-9]+" name="loanAmount" placeholder="Loan Amount" required="required" /><br>
+      <input type="text" pattern="[0-9]+" name="loanAmountTerm" placeholder="Loan Amount Term" required="required" /><br>
+        <input type="text" pattern="[0-9]+" name="CreditHistory" placeholder="Credit History" required="required" /><br>
 
         <label for="propertyArea">Property Area</label>
       <select name="propertyArea" id="propertyArea">
