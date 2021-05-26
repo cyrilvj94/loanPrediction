@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> ML Flask Application </title>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<head>
+<title> Loan Status Prediction </title>
 </head>
 
 <body>
-<h1> Results </h1>
+<style>
+        .tab {
+            display: inline-block;
+            margin-left: 10px;
+            margin-top:30px;
+            }
+        .button {
+            background-color: #969ef2;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+}
+</style>
+<h1> </span>Loan Status Prediction </h1>
+<span class="tab"><h2 style="font-family:sans-serif;font-style:italic">{{prediction_text}}</h2>
+
+  <span class="tab" ><h4>{{out}}</h4>
+    <p style="font-style:italic">Algorithm used: Random Forest Classifier</p>
+<br><br>
+    <form action="{{ url_for('home')}}">
+    <button type="submit"  method="post" class="button">Back to Home</button>
+    </form>
 </body>
 
 </html>

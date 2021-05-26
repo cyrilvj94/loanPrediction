@@ -1,5 +1,6 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template, url_for
+from flask import redirect
 import pickle
 
 
@@ -20,8 +21,15 @@ def predict():
     int_features = [int(x) for x in request.form.values()]
     print(int_features)
     prediction = model.predict([int_features])[0]
-    out = {0:"Not a Defaulter Customer", 1:'Defaulter Customer'}
-    return render_template('home.html', prediction_text=out[prediction])
+    out = {0:"Customer will pay the loan in time", 1:'Default Customer'}
+    print(int_features)
+    probability = model.predict_proba([int_features]).max()*100
+    out_text = f"Percentage Chance   : {probability}"
+    return render_template('result.html', prediction_text=out[prediction], out=out_text)
+
+@app.route('/home')
+def return_home():
+    return render_template('home.html')
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():

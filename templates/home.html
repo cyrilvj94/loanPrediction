@@ -11,7 +11,31 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   
 </head>
+<style>
+        .tab {
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .tab2 {
+            display: inline-block;
+            margin-left: 108px;
+        }
+        .tab3 {
+            display: inline-block;
+            margin-left: 75px;
+        }
+        .selectclss {
+                position: relative;
+                height:20px;
+                width:80px;
+                overflow: hidden;
+                border-radius: .50em;
+                background-color:#969ef2;
+                font-size:13px;
+;
 
+            }
+</style>
 <body>
  <div class="login">
 	<h1>Loan Status Prediction</h1>
@@ -20,51 +44,58 @@
     <form action="{{ url_for('predict')}}"method="post">
 
         <label for="gender">Gender:</label>
-      <select name="gender" id="gender">
+      <select class="selectclss" name="gender" id="gender">
         <option value="1">Male</option>
         <option value="0">Female</option>
-      </select><br>
+      </select>
+      <span class="tab"></span>
 
         <label for="maritalStatus">Marital Status</label>
-      <select name="maritalStatus" id="maritalStatus">
+      <select name="maritalStatus" class="selectclss" id="maritalStatus">
         <option value="1">Married</option>
         <option value="0">Not Married</option>
-      </select><br>
+      </select><br><br>
 
-         <label for="dependents">No of dependents</label>
-      <select name="dependents" id="dependents">
+         <label for="dependents">#Dependents</label>
+      <select name="dependents" class="selectclss" id="dependents">
         <option value="0">0</option>
         <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="5">3+</option>
-      </select><br>
+      </select>
+      <span class="tab"></span>
 
 
         <label for="education">Education</label>
-      <select name="education" id="education">
+      <select name="education" class="selectclss" id="education">
         <option value="1">Graduate</option>
         <option value="0">Not Graduate</option>
-      </select><br>
+      </select><br><br>
 
          <label for="self_employed">Self Employed</label>
-      <select name="self_employed" id="self_employed">
+      <select name="self_employed" class="selectclss" id="self_employed">
         <option value="1">Yes</option>
         <option value="0">No</option>
       </select><br>
+      <label for="Income"><span class="tab2"></span>Income  </label>
+        <input type="text" name="experience"  pattern="[0-9]+" id="Income" required="required" /><br>
+      <label for="coIncome"><span></span>Co applicant Income</label>
+        <input type="text" name="test_score"  pattern="[0-9]+" id="coIncome" required="required" /><br>
 
-        <input type="text" pattern="[0-9]+" name="income" placeholder="Income" required="required" /><br>
-        <input type="text" pattern="[0-9]+" name="coIncome" placeholder="CoApplicant Income" required="required" /><br>
-      <input type="text" pattern="[0-9]+" name="loanAmount" placeholder="Loan Amount" required="required" /><br>
-      <input type="text" pattern="[0-9]+" name="loanAmountTerm" placeholder="Loan Amount Term" required="required" /><br>
-        <input type="text" pattern="[0-9]+" name="CreditHistory" placeholder="Credit History" required="required" /><br>
+      <label for="loanAmount"><span class="tab"></span><span class="tab"></span>&ensp;&ensp;&ensp;&ensp;Loan Amount</label>
+      <input type="text" name="loanAmount"  pattern="[0-9]+" id="loanAmount" required="required" /><br>
+      <label for="loanAmountTerm"></span><span class="tab3"></span>Loan Term</label>
+      <input type="text" name="loanAmountTerm"  pattern="[0-9]+" id="loanAmountTerm" required="required" /><br>
+      <label for="creditHistory">&ensp;&ensp;&ensp;&ensp;&ensp;Credit History</label>
+        <input type="number" name="CreditHistory"  min="0" id="creditHistory" required="required" /><br><br>
 
         <label for="propertyArea">Property Area</label>
-      <select name="propertyArea" id="propertyArea">
+      <select class="selectclss"  name="propertyArea" id="propertyArea">
         <option value="3">Urban</option>
         <option value="2">Semiurban</option>
           <option value="1">Rural</option>
-      </select><br>
+      </select><br><br>
 
        
 
