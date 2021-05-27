@@ -3,7 +3,7 @@
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
   <meta charset="UTF-8">
-  <title>Loan Status Prediction</title>
+  <title>ML API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -36,8 +36,21 @@
 
             }
 </style>
+<script>
+function myFunction() {
+  var inpObj = document.getElementById("income");
+  if (!inpObj.checkValidity()) {
+    document.getElementById("validatorOut").innerHTML = "Enter Correct Data in required fields";
+    return false
+  }
+  else{
+  return true
+  }
+}
+</script>
 <body>
  <div class="login">
+   <p id="validatorOut"></p>
 	<h1>Loan Status Prediction</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
@@ -78,17 +91,17 @@
         <option value="1">Yes</option>
         <option value="0">No</option>
       </select><br>
-      <label for="Income"><span class="tab2"></span>Income  </label>
-        <input type="text" name="experience"  pattern="[0-9]+" id="Income" required="required" /><br>
+      <label for="income"><span class="tab2"></span>Income  </label>
+        <input type="text" name="experience" placeholder="in ₹ "  pattern="[1-9][0-9]+" id="income" required="required" /><br>
       <label for="coIncome"><span></span>Co applicant Income</label>
-        <input type="text" name="test_score"  pattern="[0-9]+" id="coIncome" required="required" /><br>
+        <input type="text" name="test_score"  placeholder="in ₹ " pattern="[1-9][0-9]+" id="coIncome" required="required" /><br>
 
       <label for="loanAmount"><span class="tab"></span><span class="tab"></span>&ensp;&ensp;&ensp;&ensp;Loan Amount</label>
-      <input type="text" name="loanAmount"  pattern="[0-9]+" id="loanAmount" required="required" /><br>
+      <input type="text" name="loanAmount"  placeholder="in ₹ " pattern="[1-9][0-9]+" id="loanAmount" required="required" /><br>
       <label for="loanAmountTerm"></span><span class="tab3"></span>Loan Term</label>
-      <input type="text" name="loanAmountTerm"  pattern="[0-9]+" id="loanAmountTerm" required="required" /><br>
+      <input type="text" name="loanAmountTerm"  placeholder="In Months" pattern="[1-9][0-9]+" id="loanAmountTerm" required="required" /><br>
       <label for="creditHistory">&ensp;&ensp;&ensp;&ensp;&ensp;Credit History</label>
-        <input type="number" name="CreditHistory"  min="0" id="creditHistory" required="required" /><br><br>
+        <input type="number" name="CreditHistory"  placeholder="Default History" min="0" id="creditHistory" required="required" /><br><br>
 
         <label for="propertyArea">Property Area</label>
       <select class="selectclss"  name="propertyArea" id="propertyArea">
@@ -99,7 +112,7 @@
 
        
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <button type="submit" onsubmit="return myFunction()" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
    <br>

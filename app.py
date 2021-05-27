@@ -19,11 +19,11 @@ def home():
 @app.route('/predict',methods = ['POST'])
 def predict():
     int_features = [int(x) for x in request.form.values()]
-    print(int_features)
+    #print(int_features)
     prediction = model.predict([int_features])[0]
     out = {0:"Customer will pay the loan in time", 1:'Default Customer'}
-    print(int_features)
-    probability = model.predict_proba([int_features]).max()*100
+   # print(int_features)
+    probability = int(model.predict_proba([int_features]).max()*100)
     out_text = f"Percentage Chance   : {probability}"
     return render_template('result.html', prediction_text=out[prediction], out=out_text)
 
