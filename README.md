@@ -16,6 +16,8 @@ To predict with the given data whether or not a customer will be default or not
 - Credit history(yes or no)
 - Place of living(urban, rural or semiurban)
 
-[Dataset link](https://www.kaggle.com/ninzaami/loan-predication)
-[Deployment Link](https://loanPrediction00.herokuapp.com)
+- [Dataset link](https://www.kaggle.com/ninzaami/loan-predication)
+
+- [Deployment Link](https://loanPrediction00.herokuapp.com)
+
 #### Model used is Random forest with accuracy of 70 percent
